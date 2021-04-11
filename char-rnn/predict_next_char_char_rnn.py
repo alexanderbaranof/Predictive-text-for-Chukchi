@@ -38,6 +38,8 @@ def sample(prime):
     if prime == '#':
         flag_first = True
         prime = ''
+    elif '#' in prime:
+        prime = prime.replace('#', '')
 
     with open(os.path.join(save_dir, 'config.pkl'), 'rb') as f:
         saved_args = cPickle.load(f)
@@ -82,7 +84,6 @@ for line in tqdm(sys.stdin.readlines()):
         first = tst_tokens[i]  # First token in bigram
         second = tst_tokens[i+1]  # Second token in bigram
         # If we find the first token in the bigrams dict
-    #
 
         if i == 0:
             #print(i, ' '.join(tst_tokens[:i+1]), file=sys.stderr)
@@ -106,7 +107,23 @@ for line in tqdm(sys.stdin.readlines()):
         else:
             # Otherwise we add each individual character to the output
             # e.g. writing out each of the individual clicks
-            output += [c for c in second]
+
+            typed_second = list()
+            for second_char in second:
+                typed_second.append(second_char)
+
+                if i == 0:
+                    predicted_second = sample(' '.join(tst_tokens[:i+1]) + ' ' + ''.join(typed_second))
+                else:
+                    predicted_second = sample(' '.join(tst_tokens[1:i+1]) + ' ' + ''.join(typed_second))
+
+                if predicted_second == second:
+                    break
+
+            output += [c for c in typed_second]
+
+            if len(typed_second) < len(second):
+                output.append(second[len(typed_second):len(second)])
 
         output.append('_')
 

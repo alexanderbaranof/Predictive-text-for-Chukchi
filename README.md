@@ -55,3 +55,20 @@ Clicks: 37848
 Clicks/Token: 4.306781975421028
 Clicks/Character: 0.998707021663984
 ```
+
+
+### Char RNN (LSTM) (Next character predict)
+For run char-rnn:
+```
+ python3 ./char-rnn/predict_next_char_char_rnn.py < ./data/dev.tsv > ./char-rnn/output_by_char.tsv
+ python3 evaluate.py ./data/dev.tsv ./char-rnn/output_by_char.tsv
+```
+
+The results of char-rnn (predict char by char)
+```
+Characters: 37897
+Tokens: 8788
+Clicks: 37727
+Clicks/Token: 4.293013199817934
+Clicks/Character: 0.9955141567934137
+```
