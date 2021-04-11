@@ -78,3 +78,12 @@ Clicks/Character: 0.9955141567934137
 
 ### Word level LSTM + FastText for Classification task (like one shot-learning language model)
 For run this method see `language-model-like-classification-task/train_and_predict_with_fasttext.ipynb`
+
+The results of LSTM + FastText
+```
+Characters: 37897
+Tokens: 8788
+Clicks: 37754
+Clicks/Token: 4.2960855712335
+Clicks/Character: 0.9962266142438716
+```
