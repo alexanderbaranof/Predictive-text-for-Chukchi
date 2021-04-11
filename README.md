@@ -2,6 +2,8 @@
 
 ### Project requirements:
 * tensorflow==1.13.0rc1
+* keras==2.1.5
+* gensim==3.7.3
 * tqdm
 * pandas
 
@@ -72,3 +74,7 @@ Clicks: 37727
 Clicks/Token: 4.293013199817934
 Clicks/Character: 0.9955141567934137
 ```
+
+
+### Word level LSTM + FastText for Classification task (like one shot-learning language model)
+For run this method see `language-model-like-classification-task/train_and_predict_with_fasttext.ipynb`
